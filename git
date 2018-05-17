@@ -1,0 +1,4 @@
+  git add *
+  git commit -m“第二次提交” 
+  git remote add origin https://github.com/zhaolu138969/alien_invasion.git
+  git push -u origin master
