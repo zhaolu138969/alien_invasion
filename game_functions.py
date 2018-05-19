@@ -13,6 +13,13 @@ def check_keydown_events(event, ai_settings, screen, ship, bullets):
     elif event.key == pygame.K_SPACE:
         fire_bullet(ai_settings, screen, ship, bullets)
 
+    #定义用户按键按到键盘上和下键按键时触发
+    elif event.key == pygame.KEYUP:
+        ship.moving_up = True
+    elif event.key == pygame.KEYDOWN:
+        ship.moveing_down = True
+
+
 def fire_bullet(ai_settings, screen, ship, bullets):
     """"如果没有达到限制，就发射一颗子弹"""
     #创建一个子弹，并将加入到编组bullets中
@@ -26,6 +33,12 @@ def check_keyup_events(event,ship):
     elif event.key == pygame.K_LEFT:
         ship.moving_left = False
 
+    #定义用户松开上下按键时触发
+    elif event.key == pygame.KEYUP:
+        ship.moving_up = False
+    elif event.key == pygame.KEYDOWN:
+        ship.moveing_down = False
+
 
 def check_events(ai_settings, screen, ship, bullets):
     """响应按键和鼠标的事件"""
@@ -38,6 +51,8 @@ def check_events(ai_settings, screen, ship, bullets):
             check_keydown_events(event, ai_settings, screen, ship, bullets)
         elif event.type == pygame.KEYUP:
             check_keyup_events(event,ship)
+
+
 
 
 def update_screen(ai_settings,screen,ship, bullets):

@@ -17,4 +17,4 @@ class Settings():
         self.bullet_height = 15
         self.bullet_color = 60,60,60
         #限制子弹出现的屏幕的个数
-        self.bullets_allowed = 3
+        self.bullets_allowed = 10
