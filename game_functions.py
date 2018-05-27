@@ -94,15 +94,24 @@ def get_number_aliens_x(ai_settings, alien_width):
     number_aliens_x = int(available_space_x / (2 * alien_width))
     return number_aliens_x
 
+def get_number_rows(ai_setting, ship_height, alien_height):
+    """计算屏幕可容纳多少行的外星人"""
+    available_space_y = (ai_setting.screen_width - (3 * alien_height) - ship_height)
+    number_rows = int(available_space_y / (2 *  alien_height))
+    return number_rows
+
+
+#疑点
 def create_alien(ai_settings, screen, aliens, alien_number, row_number):
     alien = Alien(ai_settings, screen)
     alien_width = alien.rect.width
-    alien.x = alien_width + 2 * alien_width * alien_number * row_number
+    alien.x = alien_width + 2 * alien_width * alien_number
     alien.rect.x = alien.x
+    alien.rect.y = alien.rect.height + 2 * alien.rect.width * row_number
     aliens.add(alien)
 
 
-def create_fleet(ai_settings, screen,ship,  aliens):
+def create_fleet(ai_settings, screen, ship,  aliens):
     #创建一个外星人，并计算一行可容纳多少个外星人
     #外星人间距为外星人的宽度
     alien = Alien(ai_settings, screen)
