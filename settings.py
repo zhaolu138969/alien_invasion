@@ -7,6 +7,11 @@ class Settings():
         self.screen_width = 860
         self.screen_height = 780
         self.bg_color = (233,233,233)
+        #外星人移动速度
+        self.alien_speed_factor = 4
+        self.fleet_drop_speed = 10
+        #fleet_direction为1的时候表示向右移动，为-1的时候向左移动
+        self.fleet_direction = 1
 
         #设置飞船的速度
         self.ship_speed_factor = 40
